@@ -136,16 +136,22 @@ public class CoreResources implements ResourceLoaderAware {
             // setPROPERTIES_DIR(resourceLoader);
             // @pgawade 18-April-2011 Fix for issue 8394
             webapp = getWebAppName(resourceLoader.getResource("/").getURI().getPath());
+            System.out.println("webapp: "+webapp);
             getPropertiesSource();
 
             String filePath = "$catalina.home/$WEBAPP.lower.config";
+            
+            System.out.println("Filepath: "+ filePath);
 
             filePath = replaceWebapp(filePath);
             filePath = replaceCatHome(filePath);
 
             String dataInfoPropFileName = filePath + "/datainfo.properties";
             String extractPropFileName = filePath + "/extract.properties";
-
+            
+            System.out.println("dataInfoPropFileName: "+ dataInfoPropFileName);
+            System.out.println("extractPropFileName"+ extractPropFileName);
+            
             Properties OC_dataDataInfoProperties = getPropValues(dataInfoProp, dataInfoPropFileName);
             Properties OC_dataExtractProperties = getPropValues(extractProp, extractPropFileName);
 
